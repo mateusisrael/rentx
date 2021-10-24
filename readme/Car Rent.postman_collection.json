@@ -1,0 +1,42 @@
+{
+	"info": {
+		"_postman_id": "f8c01896-962c-4f63-bca0-cb2061c9e314",
+		"name": "Car Rent",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "{URL}/categories",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"4x4\",\n    \"description\": \"Adventure Jeeps\"\n}"
+				},
+				"url": {
+					"raw": "{{URL}}/categories",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"categories"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "URL",
+			"value": "http://localhost:3333"
+		}
+	]
+}
