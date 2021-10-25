@@ -28,6 +28,12 @@ class CategoryRepository {
   list(): Category[] {
     return this.categories;
   }
+
+  findByName(name: string): Category | undefined {
+    return this.categories.find((currentCategory) => {
+      return currentCategory.name === name;
+    });
+  }
 }
 
 export { CategoryRepository };
