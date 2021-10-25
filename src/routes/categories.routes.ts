@@ -13,4 +13,8 @@ categoriesRoutes.post("/", (req, res) => {
   return res.status(200).json({ created: categories.list() });
 });
 
+categoriesRoutes.get("/", (req, res) => {
+  res.json(categories.list());
+});
+
 export { categoriesRoutes };
