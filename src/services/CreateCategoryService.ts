@@ -1,4 +1,4 @@
-import { CategoryRepository } from "../repositories/categoryRepository";
+import { ICategoryRepository } from "../repositories/ICategoryRepository";
 
 interface IRegister {
   name: string;
@@ -6,9 +6,9 @@ interface IRegister {
 }
 
 class CreateCategoryService {
-  private categories: CategoryRepository;
+  private categories: ICategoryRepository;
 
-  constructor(categories: CategoryRepository) {
+  constructor(categories: ICategoryRepository) {
     this.categories = categories;
   }
 
