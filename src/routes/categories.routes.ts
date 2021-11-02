@@ -1,18 +1,20 @@
 import { Router } from "express";
 
 import { CategoryRepository } from "../modules/cars/repositories/CategoryRepository";
-import { useCase } from "../modules/cars/useCases/createCategory";
+import { useCase as CreateCategoryUseCase } from "../modules/cars/useCases/createCategory";
 import { CreateCategoryController } from "../modules/cars/useCases/createCategory/CreateCategoryController";
+import { useCase as ListCategoryUseCase } from "../modules/cars/useCases/listCategory";
+import { ListCategoryController } from "../modules/cars/useCases/listCategory/ListCategoryController";
 
 const categoriesRoutes = Router();
 const categories = new CategoryRepository();
 
 categoriesRoutes.post("/", (req, res) => {
-  new CreateCategoryController(useCase).handle(req, res);
+  new CreateCategoryController(CreateCategoryUseCase).handle(req, res);
 });
 
 categoriesRoutes.get("/", (req, res) => {
-  res.json(categories.list());
+  new ListCategoryController(ListCategoryUseCase).handle(req, res);
 });
 
 export { categoriesRoutes };
