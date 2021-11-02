@@ -6,7 +6,7 @@ interface ICreateCategoryDTO {
   description: string;
 }
 
-// Seguindo o LSP criamos a interface para implementa-lá nas calsses de repositório
+// Seguindo o LSP criamos a interface para implementa-lá nas classes de repositório
 interface ICategoryRepository {
   create({ name, description }: ICreateCategoryDTO): void;
   list(): Category[];

@@ -1,7 +1,15 @@
-class CreateCategoryService {
-  execute(): void {
-    return console.log("TODO");
+import { SpecificationRepository } from "../repositories/SpecificationRepository";
+
+class CreateSpecificationService {
+  repository: SpecificationRepository;
+
+  constructor(repository: SpecificationRepository) {
+    this.repository = repository;
+  }
+
+  execute({ name, description }): void {
+    this.repository.create({ name, description });
   }
 }
 
-export { CreateCategoryService };
+export { CreateSpecificationService };
