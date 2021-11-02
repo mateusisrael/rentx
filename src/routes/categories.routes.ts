@@ -7,7 +7,6 @@ import { useCase as ListCategoryUseCase } from "../modules/cars/useCases/listCat
 import { ListCategoryController } from "../modules/cars/useCases/listCategory/ListCategoryController";
 
 const categoriesRoutes = Router();
-const categories = new CategoryRepository();
 
 categoriesRoutes.post("/", (req, res) => {
   new CreateCategoryController(CreateCategoryUseCase).handle(req, res);
