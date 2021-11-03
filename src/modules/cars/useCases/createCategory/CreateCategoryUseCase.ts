@@ -1,4 +1,4 @@
-import { ICategoryRepository } from "../../repositories/ICategoryRepository";
+import { ICategoryRepository } from "../../repositories/implementations/ICategoryRepository";
 
 interface IRegister {
   name: string;

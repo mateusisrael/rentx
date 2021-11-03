@@ -1,1 +1,4 @@
 node_modules/
+tmp/*
+# exception to the rule
+!tmp/
