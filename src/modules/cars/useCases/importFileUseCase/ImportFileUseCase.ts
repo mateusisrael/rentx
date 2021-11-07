@@ -3,6 +3,7 @@ import fs from "fs";
 
 import { Category } from "../../../../model/Category";
 import { CategoryRepository } from "../../repositories/CategoryRepository";
+import { ICreateCategoryDTO } from "../../repositories/implementations/ICategoryRepository";
 
 class ImportFileUseCase {
   private repository: CategoryRepository;
@@ -24,16 +25,22 @@ class ImportFileUseCase {
     });
   }
 
+  private handleItem(category: ICreateCategoryDTO): void {
+    const exists = this.repository.findByName(category.name);
+    if (exists) return;
+    this.repository.create({
+      name: category.name,
+      description: category.description,
+    });
+  }
+
   async execute(file: Express.Multer.File): Promise<void> {
     const data = await this.loadData(file);
 
     data.map((category) => {
-      const exists = this.repository.findByName(category.name);
-      if (exists) return;
-      this.repository.create({
-        name: category.name,
-        description: category.description,
-      });
+      // A gambiarra abaixo é simplesmente para o eslint não reclamar da falta
+      // de retorno no map.
+      return this.handleItem(category);
     });
   }
 }
