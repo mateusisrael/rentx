@@ -1,3 +1,7 @@
+import { CategoryRepository } from "../../repositories/CategoryRepository";
 import { ImportFileUseCase } from "./ImportFileUseCase";
 
-export { ImportFileUseCase };
+const repository = CategoryRepository.getInstance();
+const useCase = new ImportFileUseCase(repository);
+
+export { useCase };
