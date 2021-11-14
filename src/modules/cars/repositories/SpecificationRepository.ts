@@ -6,11 +6,20 @@ import {
 
 class SpecificationRepository implements ISpecificationRepository {
   private specifications: Specification[];
-  constructor() {
+  private static INSTANCE: SpecificationRepository;
+
+  private constructor() {
     this.specifications = [];
   }
 
-  create({ name, description }: ICreateSpecificationDTO) {
+  public static getInstance(): ISpecificationRepository {
+    if (!SpecificationRepository.INSTANCE) {
+      SpecificationRepository.INSTANCE = new SpecificationRepository();
+    }
+    return SpecificationRepository.INSTANCE;
+  }
+
+  create({ name, description }: ICreateSpecificationDTO): void {
     const specification = new Specification();
     Object.assign(specification, {
       name,
