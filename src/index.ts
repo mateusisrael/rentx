@@ -1,4 +1,5 @@
 import express from "express";
+import "reflect-metadata";
 
 import { categoriesRoutes } from "./routes/categories.routes";
 import { importRoutes } from "./routes/import.routes";
