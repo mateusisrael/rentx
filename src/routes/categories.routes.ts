@@ -9,6 +9,7 @@ import { ListCategoryController } from "../modules/cars/useCases/listCategory/Li
 const categoriesRoutes = Router();
 
 categoriesRoutes.post("/", (req, res) => {
+  console.log("[POST] create category:", req.body);
   new CreateCategoryController(CreateCategoryUseCase).handle(req, res);
 });
 
