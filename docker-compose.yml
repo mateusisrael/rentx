@@ -1,5 +1,19 @@
 version: "3.7"
 services:
+  database:
+    image: postgres
+    container_name: db_car_rent
+    restart: always
+    ports:
+        - 5432:5432
+    environment:
+      - POSTGRES_USER=docker
+      - POSTGRES_PASSWORD=1212
+      - POSTGRES_DB=car-rent
+    volumes:
+      - pgdata:/data/postgres
+    network_mode: host
+
   app:
     build: .
     container_name: car-rent
@@ -7,3 +21,7 @@ services:
       - 3333:3333
     volumes:
       - .:/usr/app
+    network_mode: host
+
+volumes:
+  pgdata:
