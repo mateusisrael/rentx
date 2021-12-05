@@ -5,7 +5,7 @@ import { CreateSpecificationUseCase } from "./CreateSpecificationUseCase";
 class CreateSpecificationController {
   private useCase: CreateSpecificationUseCase;
 
-  constructor(useCase) {
+  constructor(useCase: CreateSpecificationUseCase) {
     this.useCase = useCase;
   }
 

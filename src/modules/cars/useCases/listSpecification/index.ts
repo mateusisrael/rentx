@@ -1,7 +1,7 @@
 import { SpecificationRepository } from "../../repositories/SpecificationRepository";
-import { CreateSpecificationUseCase } from "./CreateSpecificationUseCase";
+import { ListSpecificationUseCase } from "./ListSpecificationUseCase";
 
 const repository = SpecificationRepository.getInstance();
-const useCase = new CreateSpecificationUseCase(repository);
+const useCase = new ListSpecificationUseCase(repository);
 
 export { useCase };
