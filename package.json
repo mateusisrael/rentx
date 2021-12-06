@@ -4,6 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
+    "typeorm": "ts-node ./node_modules/typeorm/cli",
     "lint": "Seslint --debug",
     "dev": "ts-node-dev --inspect --transpile-only --ignore-watch node_modules --respawn src/index.ts"
   },
