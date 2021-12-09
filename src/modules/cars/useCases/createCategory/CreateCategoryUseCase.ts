@@ -12,13 +12,13 @@ class CreateCategoryUseCase {
     this.categories = categories;
   }
 
-  execute({ name, description }: IRegister): void | Error {
+  async execute({ name, description }: IRegister): Promise<void | Error> {
     // Inversão de depêndecias retiramos o category repository de dentro
     // da nossa classe create category service e colocamos na
     // entidade que "chama" esta classe, de forma que, ao instânciarmos
     // ela, passamos o categories no constructor.
     // const categories = new CategoryRepository();
-    const categoryAlreadyExists = this.categories.findByName(name);
+    const categoryAlreadyExists = await this.categories.findByName(name);
     if (categoryAlreadyExists) {
       const error = "Category already exists";
       throw error;

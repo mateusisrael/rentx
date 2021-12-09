@@ -1,7 +1,10 @@
 import { CategoryRepository } from "../../repositories/CategoryRepository";
+import { ImportFileController } from "./ImportFileController";
 import { ImportFileUseCase } from "./ImportFileUseCase";
 
-const repository = CategoryRepository.getInstance();
-const useCase = new ImportFileUseCase(repository);
-
-export { useCase };
+export default (): ImportFileController => {
+  const repository = new CategoryRepository();
+  const useCase = new ImportFileUseCase(repository);
+  const controller = new ImportFileController(useCase);
+  return controller;
+};
