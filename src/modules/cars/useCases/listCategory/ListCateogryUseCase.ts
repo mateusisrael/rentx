@@ -8,7 +8,7 @@ class ListCategoryUseCase {
     this.repository = repository;
   }
 
-  execute() {
+  execute(): Promise<Category[]> {
     return this.repository.list();
   }
 }

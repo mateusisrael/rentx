@@ -9,10 +9,10 @@ class ImportFileController {
     this.useCase = useCase;
   }
 
-  handle(req: Request, res: Response): Response {
-    const { file } = req;
+  async handle(req: Request, res: Response): Promise<Response> {
     try {
-      this.useCase.execute(file);
+      const { file } = req;
+      await this.useCase.execute(file);
       return res.status(200).send();
     } catch (error) {
       return res.status(500).send();

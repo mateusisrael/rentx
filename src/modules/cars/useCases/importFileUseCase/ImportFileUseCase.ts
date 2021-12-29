@@ -25,8 +25,8 @@ class ImportFileUseCase {
     });
   }
 
-  private handleItem(category: ICreateCategoryDTO): void {
-    const exists = this.repository.findByName(category.name);
+  private async handleItem(category: ICreateCategoryDTO): Promise<void> {
+    const exists = await this.repository.findByName(category.name);
     if (exists) return;
     this.repository.create({
       name: category.name,
@@ -36,7 +36,6 @@ class ImportFileUseCase {
 
   async execute(file: Express.Multer.File): Promise<void> {
     const data = await this.loadData(file);
-
     data.map((category) => {
       // A gambiarra abaixo é simplesmente para o eslint não reclamar da falta
       // de retorno no map.
