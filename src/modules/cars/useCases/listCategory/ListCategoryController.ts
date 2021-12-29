@@ -9,9 +9,9 @@ class ListCategoryController {
     this.useCase = useCase;
   }
 
-  handle(req: Request, res: Response): Response {
+  async handle(req: Request, res: Response): Promise<Response> {
     try {
-      const categories = this.useCase.execute();
+      const categories = await this.useCase.execute();
       return res.json(categories);
     } catch (error) {
       return res.status(500);

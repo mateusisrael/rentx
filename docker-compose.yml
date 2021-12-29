@@ -4,8 +4,8 @@ services:
     image: postgres
     container_name: db_car_rent
     restart: always
-    ports:
-        - 5432:5432
+    # ports:
+    #     - 5432:5432
     environment:
       - POSTGRES_USER=docker
       - POSTGRES_PASSWORD=1212
@@ -17,8 +17,8 @@ services:
   app:
     build: .
     container_name: car-rent
-    ports:
-      - 3333:3333
+    # ports:
+    #   - 3333:3333
     volumes:
       - .:/usr/app
     network_mode: host
