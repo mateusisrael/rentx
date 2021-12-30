@@ -8,8 +8,8 @@ interface ICreateSpecificationDTO {
 // Seguindo o LSP criamos a interface para implementa-lá nas classes de repositório
 interface ISpecificationRepository {
   create({ name, description }: ICreateSpecificationDTO): void;
-  list(): Specification[] | [];
-  // findByName(): Specification | undefined;
+  list(): Promise<Specification[]>;
+  findByName(name: string): Promise<Specification | undefined>;
 }
 
 export { ISpecificationRepository, ICreateSpecificationDTO };

@@ -9,16 +9,17 @@ class CreateSpecificationController {
     this.useCase = useCase;
   }
 
-  handle(req: Request, res: Response): Response {
+  async handle(req: Request, res: Response): Promise<Response> {
     const { name, description } = req.body;
     try {
-      this.useCase.execute({
+      await this.useCase.execute({
         name,
         description,
       });
       return res.status(201).send();
-    } catch (error) {
-      return res.status(401).send();
+    } catch (err) {
+      console.log(err);
+      return res.status(400).json({ error: err });
     }
   }
 }

@@ -9,9 +9,9 @@ class ListSpecificationController {
     this.useCase = useCase;
   }
 
-  handle(req: Request, res: Response): Response {
+  async handle(req: Request, res: Response): Promise<Response> {
     try {
-      const specifications = this.useCase.execute();
+      const specifications = await this.useCase.execute();
       return res.json(specifications);
     } catch (error) {
       return res.status(500);
