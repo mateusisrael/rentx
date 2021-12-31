@@ -1,7 +1,8 @@
 import express from "express";
+
 import "reflect-metadata";
 import "./database";
-
+import { accountRouter } from "./routes/account.routes";
 import { categoriesRoutes } from "./routes/categories.routes";
 import { importRoutes } from "./routes/import.routes";
 import { specificationsRoutes } from "./routes/specifications.routes";
@@ -13,5 +14,6 @@ app.use(express.json());
 app.use("/categories", categoriesRoutes);
 app.use("/specifications", specificationsRoutes);
 app.use("/import", importRoutes);
+app.use("/account", accountRouter);
 
 app.listen(SERVER_PORT, () => console.log(`Server on ${SERVER_PORT}`));

@@ -1,8 +1,9 @@
 import { Request, Response } from "express";
 
+import { CreateUserUseCase } from "./createUserUseCase";
+
 class CreateUserController {
-  useCase: any;
-  constructor(useCase: any) {
+  constructor(public useCase: CreateUserUseCase) {
     this.useCase = useCase;
   }
 
