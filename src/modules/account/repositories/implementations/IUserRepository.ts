@@ -1,4 +1,4 @@
-import { User } from "../../../../entitie/User";
+import { User } from "../../entities/User";
 
 interface IUserDTO {
   name: string;

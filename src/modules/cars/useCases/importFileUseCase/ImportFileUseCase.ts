@@ -1,7 +1,7 @@
 import csv from "csv-parser";
 import fs from "fs";
 
-import { Category } from "../../../../entitie/Category";
+import { Category } from "../../entities/Category";
 import { CategoryRepository } from "../../repositories/CategoryRepository";
 import { ICreateCategoryDTO } from "../../repositories/implementations/ICategoryRepository";
 
