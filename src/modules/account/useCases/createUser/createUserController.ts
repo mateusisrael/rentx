@@ -8,12 +8,13 @@ class CreateUserController {
   }
 
   async handle(req: Request, res: Response): Promise<Response> {
+    const { user } = req.body;
+
     try {
-      const { user } = req.body;
       await this.useCase.execute(user);
       return res.status(201).json();
-    } catch (error) {
-      return res.status(400).json({});
+    } catch (err) {
+      return res.status(400).json({ error: err });
     }
   }
 }

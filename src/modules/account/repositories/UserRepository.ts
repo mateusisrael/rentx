@@ -14,8 +14,8 @@ class UserRepository implements IUserRepository {
     await this.repository.save(createdUser);
   }
 
-  async findByName(name: string): Promise<User> {
-    const user = await this.repository.findOne({ name });
+  async findByName(username: string): Promise<User> {
+    const user = await this.repository.findOne({ username });
     return user;
   }
 

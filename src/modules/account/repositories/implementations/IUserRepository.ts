@@ -12,7 +12,7 @@ interface IUserDTO {
 
 interface IUserRepository {
   create(user: IUserDTO): Promise<void | Error>;
-  findByName(name: string): Promise<User>;
+  findByName(username: string): Promise<User>;
   list(): Promise<User[]>;
 }
 

@@ -11,9 +11,11 @@ class CreateUserUseCase {
   async execute(user: IUserDTO): Promise<void | Error> {
     const userExist = await this.repository.findByName(user.username);
     if (userExist) {
-      throw Error("User already exists");
+      const error = "User already exists";
+      throw error;
+    } else {
+      this.repository.create(user);
     }
-    this.repository.create(user);
   }
 }
 

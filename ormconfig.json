@@ -8,8 +8,8 @@
   "synchronize": true,
   "logging": false,
   "entities": [
-     "./src/account/entities/*.ts",
-     "./src/cars/entities/*.ts"
+   "./src/modules/account/entities/*.ts",
+     "./src/modules/cars/entities/*.ts"
   ],
   "migrations": [
      "./src/database/migrations/*.ts"

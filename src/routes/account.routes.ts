@@ -9,6 +9,8 @@ accountRouter.get("/", (req: Request, res: Response) => {
 });
 
 accountRouter.post("/", (req: Request, res: Response) => {
+  const { user } = req.body;
+  console.log(user);
   createUserController().handle(req, res);
 });
 
