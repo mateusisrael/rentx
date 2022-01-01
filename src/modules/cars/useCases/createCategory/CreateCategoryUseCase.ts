@@ -20,10 +20,16 @@ class CreateCategoryUseCase {
     // const categories = new CategoryRepository();
     const categoryAlreadyExists = await this.categories.findByName(name);
     if (categoryAlreadyExists) {
-      const error = "Category already exists";
+      const errorStatus = 400;
+      throw errorStatus;
+    }
+
+    // eslint-disable-next-line no-useless-catch
+    try {
+      await this.categories.create({ name, description });
+    } catch (error) {
       throw error;
     }
-    this.categories.create({ name, description });
   }
 }
 
